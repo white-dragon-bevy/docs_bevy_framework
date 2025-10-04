@@ -52,6 +52,10 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       needs.check-submodule.outputs.updated == 'true'
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout 代码
         uses: actions/checkout@v4
