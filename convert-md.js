@@ -2,8 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 
-const guidesDir = './dist/guides';
-const files = fs.readdirSync(guidesDir).filter(f => f.endsWith('.md'));
+const sourceDir = './pages/guides';
+const targetDir = './dist/guides';
+
+// 确保目标目录存在
+if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true });
+}
+
+const files = fs.readdirSync(sourceDir).filter(f => f.endsWith('.md'));
 
 const htmlTemplate = (title, content) => `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -176,8 +183,8 @@ const htmlTemplate = (title, content) => `<!DOCTYPE html>
 </html>`;
 
 files.forEach(file => {
-    const mdPath = path.join(guidesDir, file);
-    const htmlPath = mdPath.replace('.md', '.html');
+    const mdPath = path.join(sourceDir, file);
+    const htmlPath = path.join(targetDir, file.replace('.md', '.html'));
 
     const mdContent = fs.readFileSync(mdPath, 'utf-8');
     const htmlContent = marked(mdContent);
