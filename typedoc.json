@@ -1,0 +1,34 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "./framework/src/bevy_app/index.ts",
+    "./framework/src/bevy_camera/index.ts",
+    "./framework/src/bevy_core/index.ts",
+    "./framework/src/bevy_diagnostic/index.ts",
+    "./framework/src/bevy_ecs/index.ts",
+    "./framework/src/bevy_ecs_debugger/index.ts",
+    "./framework/src/bevy_input/index.ts",
+    "./framework/src/bevy_internal/index.ts",
+    "./framework/src/bevy_log/index.ts",
+    "./framework/src/bevy_render/index.ts",
+    "./framework/src/bevy_state/index.ts",
+    "./framework/src/bevy_time/index.ts",
+    "./framework/src/bevy_transform/index.ts",
+    "./framework/src/simple_replication/index.ts"
+  ],
+  "entryPointStrategy": "expand",
+  "out": "./dist/api",
+  "tsconfig": "./framework/tsconfig.json",
+  "skipErrorChecking": true,
+  "name": "White Dragon Bevy Framework - API 文档",
+  "readme": "./README.md",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeExternals": true,
+  "plugin": [],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  }
+}
